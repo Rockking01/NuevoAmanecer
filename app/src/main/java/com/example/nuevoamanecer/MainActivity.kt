@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Column {
         Text(
-            text = "Intentando un push, HOla",
+            text = "Push desde mi branch",
             modifier = modifier
         )
     }
