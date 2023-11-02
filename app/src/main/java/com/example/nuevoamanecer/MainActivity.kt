@@ -11,6 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.nuevoamanecer.Pantallas.Login
+import com.example.nuevoamanecer.Pantallas.adminPage
+import com.example.nuevoamanecer.Pantallas.juegosPage
+import com.example.nuevoamanecer.Pantallas.tableroPage
+import com.example.nuevoamanecer.Pantallas.userPage
 import com.example.nuevoamanecer.ui.theme.NuevoAmanecerTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Login()
                 }
             }
         }
