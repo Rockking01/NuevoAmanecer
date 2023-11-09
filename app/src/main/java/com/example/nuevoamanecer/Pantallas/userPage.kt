@@ -9,9 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @Composable
-fun userPage(){
+fun userPage(navController: NavHostController){
     Column {
         Text(
             modifier = Modifier
@@ -26,7 +27,7 @@ fun userPage(){
         ) {
             Button(
                 onClick = {
-                    // Aqui iria el navController
+                    navController.navigate("Tablero")
                 },
                 modifier = Modifier.padding(vertical = 10.dp, horizontal = 10.dp)
             ) {
@@ -34,7 +35,7 @@ fun userPage(){
             }
             Button(
                 onClick = {
-                    // Aqui iria el navController
+                    navController.navigate("Juegos")
                 },
                 modifier = Modifier.padding(vertical = 10.dp)
             ) {
@@ -43,7 +44,7 @@ fun userPage(){
         }
         Button(
             onClick = {
-                // Aqui iria el navController
+                navController.navigate("Login")
             },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)

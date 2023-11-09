@@ -9,9 +9,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @Composable
-fun adminPage() {
+fun adminPage(navController: NavHostController) {
     Column {
         Text(modifier = Modifier
             .align(CenterHorizontally)
@@ -21,7 +22,7 @@ fun adminPage() {
             , text = "Pagina del Admin")
         Button(onClick = {
 
-            // Aqui iria el navController
+            navController.navigate("Login")
 
         }, modifier = Modifier
             .align(Alignment.CenterHorizontally)
