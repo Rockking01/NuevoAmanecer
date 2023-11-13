@@ -28,11 +28,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Blue
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.Color.Companion.Red
+import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.example.nuevoamanecer.R
 
@@ -51,19 +54,10 @@ fun Login(navController: NavHostController) {
 
 
         }){
-        Column(
-            modifier = Modifier.padding(start = 800.dp, top = 150.dp)
-            ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo_nuevo_amanecer),
-                contentDescription = "Logo Nuevo Amanecer" ,
-                modifier = Modifier
-                    .size(400.dp)
 
 
-            )
-        }
     }
+
     Box(
         modifier = with (Modifier){
             fillMaxWidth(0.6f)
@@ -75,18 +69,19 @@ fun Login(navController: NavHostController) {
         })
 
 
+
+
+
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth(.6f)
-            .padding(
-                horizontal = 50.dp,
-                vertical = 200.dp
-            )
+            .padding(top = 200.dp)
+
     ) {
 
-        Text(text = "Bienvenidos",fontSize = 58.sp )
+        Text(text = "Bienvenidos",fontSize = 58.sp)
         Button(onClick = {
 
             navController.navigate("adminPage")
@@ -113,5 +108,19 @@ fun Login(navController: NavHostController) {
             )) {
             Text(text = "Admin Login", fontSize = 30.sp)
         }
+
+
+
+
     }
+    Column {
+        Image(
+            painter = painterResource(id = R.drawable.logo_nuevo_amanecer),
+            contentDescription = "Logo",
+            modifier = Modifier.padding(top = 150.dp, start = 800.dp).size(400.dp)
+
+
+        )
+    }
+
 }
