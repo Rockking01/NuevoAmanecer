@@ -3,6 +3,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.nuevoamanecer.Pantallas.Login
+import com.example.nuevoamanecer.Pantallas.LoginAdmin
+import com.example.nuevoamanecer.Pantallas.LoginUser
 import com.example.nuevoamanecer.Pantallas.adminPage
 import com.example.nuevoamanecer.Pantallas.juegosPage
 import com.example.nuevoamanecer.Pantallas.tableroPage
@@ -16,6 +18,12 @@ fun Navigation (){
     NavHost(navController = navController, startDestination = "Login"){
         composable("Login"){
             Login(navController)
+        }
+        composable("LoginUser"){
+            LoginUser(navController)
+        }
+        composable("LoginAdmin"){
+            LoginAdmin(navController)
         }
 
         composable("adminPage"){
