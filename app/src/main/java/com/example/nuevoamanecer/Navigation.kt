@@ -5,10 +5,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.nuevoamanecer.Pantallas.Login
 import com.example.nuevoamanecer.Pantallas.LoginAdmin
 import com.example.nuevoamanecer.Pantallas.LoginUser
+import com.example.nuevoamanecer.Pantallas.userPage
 import com.example.nuevoamanecer.Pantallas.adminPage
 import com.example.nuevoamanecer.Pantallas.juegosPage
 import com.example.nuevoamanecer.Pantallas.tableroPage
-import com.example.nuevoamanecer.Pantallas.userPage
+
 
 @Composable
 fun Navigation (){
