@@ -2,6 +2,7 @@ package com.example.nuevoamanecer.Pantallas
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -22,7 +23,7 @@ import androidx.navigation.NavHostController
 @Composable
 fun adminPage(navController: NavHostController, usuario: Usuario = getData()[1]) {
 
-    Column {
+    Column (modifier = Modifier.fillMaxSize()){
         Text(
             modifier = Modifier
                 .align(CenterHorizontally)
