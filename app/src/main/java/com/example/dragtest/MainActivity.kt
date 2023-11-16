@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val backgroundPainter = painterResource(id = R.drawable.blackboard_background)
+                    val backgroundPainter = painterResource(id = R.drawable.hoja_background)
                     Image(
                         painter = backgroundPainter,
                         contentDescription = null,
