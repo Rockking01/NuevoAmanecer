@@ -106,7 +106,7 @@ fun Login(navController: NavHostController) {
             .padding(
                 vertical = 20.dp
             )) {
-            Text(text = "Admin Login", fontSize = 30.sp)
+            Text(text = "User Login", fontSize = 30.sp)
         }
 
 
