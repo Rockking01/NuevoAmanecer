@@ -7,7 +7,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -26,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.consumeAllChanges
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -270,12 +273,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WinMessage() {
-    Text(
-        text = "Ganaste!",
-        modifier = Modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.Center)
-            .background(Color.Black.copy(alpha = 0.5f)),
-        color = Color.White
-    )
+    val backgroundPainter = painterResource(id = R.drawable.ganaste)
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = backgroundPainter,
+            contentDescription = null,
+            modifier = Modifier
+                .size(600.dp)
+                .fillMaxWidth()
+                .aspectRatio(1f),
+            contentScale = ContentScale.FillBounds
+        )
+    }
 }
+
