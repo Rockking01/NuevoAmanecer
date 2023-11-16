@@ -14,8 +14,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,32 +25,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
-import androidx.compose.ui.graphics.Color.Companion.DarkGray
-import androidx.compose.ui.graphics.Color.Companion.Red
-import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.example.nuevoamanecer.R
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Login(navController: NavHostController) {
-    var text by remember {
-        mutableStateOf(" ")
-    }
+fun LoginUser(navController: NavHostController) {
+
+
+    var name by remember { mutableStateOf("")}
+    var code by remember { mutableStateOf("")}
     Box(
         modifier = with (Modifier){
             fillMaxSize()
                 .background(Color(0xFF4BADE9))
-                    // Replace with your image id
+            // Replace with your image id
 
 
         }){
@@ -81,46 +75,46 @@ fun Login(navController: NavHostController) {
 
     ) {
 
-        Text(text = "Bienvenido",fontSize = 58.sp)
-        Button(onClick = {
+        Text(text = "Bienvenido", fontSize = 58.sp)
 
-            navController.navigate("LoginAdmin")
-
-        }, modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .height(100.dp)
-            .width(400.dp)
-            .padding(
-                vertical = 20.dp
-            )) {
-            Text(text = "Admin Login", fontSize = 30.sp)
-        }
-        Button(onClick = {
-
-            navController.navigate("LoginUser")
-
-        }, modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .height(100.dp)
-            .width(400.dp)
-            .padding(
-                vertical = 20.dp
-            )) {
-            Text(text = "User Login", fontSize = 30.sp)
-        }
-
-
-
-
-    }
-    Column {
-        Image(
-            painter = painterResource(id = R.drawable.logo_nuevo_amanecer),
-            contentDescription = "Logo",
-            modifier = Modifier.padding(top = 150.dp, start = 800.dp).size(400.dp)
-
-
+        Text(text = "Nombre Alumno:", fontSize = 30.sp)
+        TextField(
+            value = name,
+            onValueChange = { name = it },
+            label = { Text("Nombre Alumno") }
         )
+        Text(text = "Codigo Alumno:", fontSize = 30.sp)
+        TextField(
+            value = code,
+            onValueChange = { code = it },
+            label = { Text("#45100") }
+        )
+        Button(
+            onClick = {
+
+                navController.navigate("userPage")
+
+            }, modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .height(100.dp)
+                .width(200.dp)
+                .padding(
+                    vertical = 20.dp
+                )
+        ) {
+            Text(text = "Ingresar", fontSize = 30.sp)
+
+
+        }
     }
+        Column {
+            Image(
+                painter = painterResource(id = R.drawable.logo_nuevo_amanecer),
+                contentDescription = "Logo",
+                modifier = Modifier.padding(top = 150.dp, start = 800.dp).size(400.dp)
+
+
+            )
+        }
 
 }
