@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.nuevoamanecer.R
 
@@ -32,9 +33,14 @@ import com.example.nuevoamanecer.R
 fun userPage(navController: NavHostController){
 
     Box(
-        modifier = Modifier.background(Color(0xFFa1beff))
+        modifier = with (Modifier){
+            fillMaxSize()
+                .background(Color(0xFF4BADE9))
+            // Replace with your image id
 
-    ){
+
+        }){
+
 
     }
 
@@ -64,27 +70,52 @@ fun userPage(navController: NavHostController){
                 onClick = {
                     navController.navigate("Tablero")
                 },
-                modifier = Modifier.padding(vertical = 10.dp, horizontal = 10.dp).height(400.dp)
+                modifier = Modifier
+                    .padding(vertical = 10.dp, horizontal = 10.dp)
+                    .height(400.dp)
                     .width(600.dp)
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.tableroimage),
-                    contentDescription = "Tablero",
-                    modifier = Modifier.size(220.dp)
-                )
+                Column (
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxWidth()
+
+
+                ) {
+                    Text(text = "Tablero", fontSize = 58.sp)
+                    Image(
+                        painter = painterResource(id = R.drawable.tableroimage),
+                        contentDescription = "Tablero",
+                        modifier = Modifier.size(220.dp)
+                    )
+                }
+
             }
             FloatingActionButton(
                 onClick = {
                     navController.navigate("Juegos")
                 },
-                modifier = Modifier.padding(vertical = 10.dp).height(400.dp)
+                modifier = Modifier
+                    .padding(vertical = 10.dp)
+                    .height(400.dp)
                     .width(600.dp)
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.juegosimage),
-                    contentDescription = "Juegos",
-                    modifier = Modifier.size(220.dp)
-                )
+                Column (
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxWidth()
+
+
+                ) {
+                    Text(text = "Juegos", fontSize = 58.sp)
+                    Image(
+                        painter = painterResource(id = R.drawable.juegosimage),
+                        contentDescription = "Tablero",
+                        modifier = Modifier.size(220.dp)
+                    )
+                }
             }
         }
 
