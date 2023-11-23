@@ -1,5 +1,6 @@
 package com.example.nuevoamanecer.Pantallas
 
+import android.text.style.BackgroundColorSpan
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -47,11 +48,13 @@ fun juegosPage(navController: NavHostController){
             .fillMaxSize()
     ) {
         FloatingActionButton(
+
             onClick = {
                 navController.navigate("userPage")
             },
             modifier = Modifier
                 .align(Alignment.End)
+
         ) {
             Icon(Icons.Filled.Close, "Cerrar Sesion")
         }

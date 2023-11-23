@@ -21,16 +21,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
-fun adminPage(navController: NavHostController, usuario: Usuario = getData()[1]) {
+fun adminPage(navController: NavHostController) {
 
     Column (modifier = Modifier.fillMaxSize()){
-        Text(
-            modifier = Modifier
-                .align(CenterHorizontally)
-                .padding(
-                    vertical = 10.dp),
-            text = "Pagina del Admin"
-        )
+
         FloatingActionButton(
             onClick = {
                 navController.navigate("Login")
