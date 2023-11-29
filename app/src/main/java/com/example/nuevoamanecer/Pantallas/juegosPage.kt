@@ -65,7 +65,7 @@ fun juegosPage(navController: NavHostController){
                     containerColor = Color.Yellow,
                     contentColor = Color.Black),
                 shape = RoundedCornerShape(20.dp),
-                onClick = { navController.navigate("userPage")},
+                onClick = { navController.navigate("Balloon")},
                 modifier = Modifier
                     .height(300.dp)
                     .width(600.dp)

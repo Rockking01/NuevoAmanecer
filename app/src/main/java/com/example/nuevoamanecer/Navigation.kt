@@ -2,6 +2,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.nuevoamanecer.Pantallas.BalloonGameScreen
 import com.example.nuevoamanecer.Pantallas.Login
 import com.example.nuevoamanecer.Pantallas.LoginAdmin
 import com.example.nuevoamanecer.Pantallas.LoginUser
@@ -38,6 +39,9 @@ fun Navigation (){
         }
         composable("Juegos"){
             juegosPage(navController)
+        }
+        composable("Balloon"){
+            BalloonGameScreen(navController)
         }
 
     }
