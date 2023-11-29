@@ -80,14 +80,20 @@ class MainActivity : ComponentActivity() {
                         var offsetY2 by remember { mutableStateOf(226f) }
                         var offsetX3 by remember { mutableStateOf(100f) }
                         var offsetY3 by remember { mutableStateOf(200f) }
-                        var offsetX4 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY4 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
-                        var offsetX5 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY5 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
-                        var offsetX6 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY6 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
-                        var offsetX7 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY7 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
+                        var offsetX4 by remember { mutableStateOf(100f) }
+                        var offsetY4 by remember { mutableStateOf(500f) }
+                        var offsetX4_1 by remember { mutableStateOf(100f) }
+                        var offsetY4_1 by remember { mutableStateOf(500f) }
+                        var offsetX4_2 by remember { mutableStateOf(100f) }
+                        var offsetY4_2 by remember { mutableStateOf(500f) }
+                        var sprinklesX by remember { mutableStateOf(100f) }
+                        var sprinklesY by remember { mutableStateOf(500f) }
+                        var cerezaX by remember { mutableStateOf(100f) }
+                        var cerezaY by remember { mutableStateOf(500f) }
+                        var offsetX5 by remember { mutableStateOf(100f) }
+                        var offsetY5 by remember { mutableStateOf(500f) }
+                        var offsetX6 by remember { mutableStateOf(100f) }
+                        var offsetY6 by remember { mutableStateOf(500f) }
                         var offsetX8 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
                         var offsetY8 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
                         val frost: Painter = painterResource(id = R.drawable.frost)
@@ -100,11 +106,12 @@ class MainActivity : ComponentActivity() {
                         val azul: Painter = painterResource(id = R.drawable.azul)
                         val rosa: Painter = painterResource(id = R.drawable.rosa)
                         val mora: Painter = painterResource(id = R.drawable.morado)
-                        val image4: Painter = painterResource(id = R.drawable.circulo_contorno)
-                        val image5: Painter = painterResource(id = R.drawable.pentagono_relleno)
-                        val image6: Painter = painterResource(id = R.drawable.pentagono_contorno)
-                        val image7: Painter = painterResource(id = R.drawable.tirangulo_relleno)
-                        val image8: Painter = painterResource(id = R.drawable.triangulo_contorno)
+                        val sprinkles: Painter = painterResource(id = R.drawable.sprinkles)
+                        val cereza: Painter = painterResource(id = R.drawable.cereza)
+                        val fresa: Painter = painterResource(id = R.drawable.fresa)
+                        val fondofresa: Painter = painterResource(id = R.drawable.fondofresa)
+                        val fondosprinkles: Painter = painterResource(id = R.drawable.fondosprinkles)
+                        val fondofrost: Painter = painterResource(id = R.drawable.fondofrost)
                         var snapped1to2 by remember { mutableStateOf(false) }
                         var snapped3to4 by remember { mutableStateOf(false) }
                         var snapped5to6 by remember { mutableStateOf(false) }
@@ -135,6 +142,14 @@ class MainActivity : ComponentActivity() {
                         )
 
                         Image(
+                            painter = fondofrost,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((offsetX4_2 / d.density)-40).dp, ((offsetY4_2 / d.density)-385).dp)
+                                .size(570.dp)
+                        )
+
+                        Image(
                             painter = botonBlanco,
                             contentDescription = null,
                             modifier = Modifier
@@ -148,7 +163,6 @@ class MainActivity : ComponentActivity() {
                                 }
 
                         )
-
                         Image(
                             painter = blanco,
                             contentDescription = null,
@@ -171,7 +185,6 @@ class MainActivity : ComponentActivity() {
                                 }
 
                         )
-
                         Image(
                             painter = azul,
                             contentDescription = null,
@@ -194,7 +207,6 @@ class MainActivity : ComponentActivity() {
                                 }
 
                         )
-
                         Image(
                             painter = rosa,
                             contentDescription = null,
@@ -217,6 +229,13 @@ class MainActivity : ComponentActivity() {
                                 }
 
                         )
+                        Image(
+                            painter = mora,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(if (visMora) (offsetX2/d.density).dp else (-1000).dp, (offsetY2/d.density).dp)
+                                .size(430.dp)
+                        )
 
                         Image(
                             painter = mora,
@@ -227,100 +246,96 @@ class MainActivity : ComponentActivity() {
                         )
 
                         Image(
-                            painter = image4,
+                            painter = fondofresa,
                             contentDescription = null,
                             modifier = Modifier
-                                .offset((offsetX4 / d.density).dp, (offsetY4 / d.density).dp)
-                                .size(100.dp)
+                                .offset(((offsetX4_1 / d.density)-40).dp, ((offsetY4_1 / d.density)-210).dp)
+                                .size(570.dp)
+                        )
+
+                        Image(
+                            painter = fondosprinkles,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((offsetX4_1 / d.density)-40).dp, ((offsetY4_1 / d.density)+17).dp)
+                                .size(570.dp)
+                        )
+
+                        Image(
+                            painter = sprinkles,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((sprinklesX / d.density)).dp, ((sprinklesY / d.density)+145).dp)
+                                .size(310.dp)
+                                .pointerInput(Unit) {
+                                    detectDragGestures { change, dragAmount ->
+                                        change.consumeAllChanges()
+                                        sprinklesX += dragAmount.x
+                                        sprinklesY += dragAmount.y
+                                    }
+                                }
+                        )
+
+                        Image(
+                            painter = cereza,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((cerezaX / d.density)+350).dp, ((cerezaY / d.density)+230).dp)
+                                .size(150.dp)
+                                .pointerInput(Unit) {
+                                    detectDragGestures { change, dragAmount ->
+                                        change.consumeAllChanges()
+                                        cerezaX += dragAmount.x
+                                        cerezaY += dragAmount.y
+                                    }
+                                }
+                        )
+
+                        Image(
+                            painter = fresa,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((offsetX4 / d.density)+175).dp, (offsetY4 / d.density).dp)
+                                .size(150.dp)
                                 .pointerInput(Unit) {
                                     detectDragGestures { change, dragAmount ->
                                         change.consumeAllChanges()
                                         offsetX4 += dragAmount.x
                                         offsetY4 += dragAmount.y
-                                        if (abs(offsetX4 - offsetX3) < snapDistance && abs(offsetY4 - offsetY3) < snapDistance) {
-                                            offsetX4 = offsetX3
-                                            offsetY4 = offsetY3
-                                            snapped3to4 = true
-                                        }
                                     }
                                 }
                         )
                         Image(
-                            painter = image5,
+                            painter = fresa,
                             contentDescription = null,
                             modifier = Modifier
-                                .offset((offsetX5 / d.density).dp, (offsetY5 / d.density).dp)
-                                .size(100.dp)
+                                .offset(((offsetX5 / d.density)+350).dp, (offsetY5 / d.density).dp)
+                                .size(150.dp)
                                 .pointerInput(Unit) {
                                     detectDragGestures { change, dragAmount ->
                                         change.consumeAllChanges()
                                         offsetX5 += dragAmount.x
                                         offsetY5 += dragAmount.y
-                                        if (abs(offsetX5 - offsetX6) < snapDistance && abs(offsetY5 - offsetY6) < snapDistance) {
-                                            offsetX5 = offsetX6
-                                            offsetY5 = offsetY6
-                                            snapped5to6 = true
-                                        }
                                     }
                                 }
                         )
                         Image(
-                            painter = image6,
+                            painter = fresa,
                             contentDescription = null,
                             modifier = Modifier
                                 .offset((offsetX6 / d.density).dp, (offsetY6 / d.density).dp)
-                                .size(100.dp)
+                                .size(150.dp)
                                 .pointerInput(Unit) {
                                     detectDragGestures { change, dragAmount ->
                                         change.consumeAllChanges()
                                         offsetX6 += dragAmount.x
                                         offsetY6 += dragAmount.y
-                                        if (abs(offsetX6 - offsetX5) < snapDistance && abs(offsetY6 - offsetY5) < snapDistance) {
-                                            offsetX6 = offsetX5
-                                            offsetY6 = offsetY5
-                                            snapped5to6 = true
-                                        }
                                     }
                                 }
                         )
-                        Image(
-                            painter = image7,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .offset((offsetX7 / d.density).dp, (offsetY7 / d.density).dp)
-                                .size(100.dp)
-                                .pointerInput(Unit) {
-                                    detectDragGestures { change, dragAmount ->
-                                        change.consumeAllChanges()
-                                        offsetX7 += dragAmount.x
-                                        offsetY7 += dragAmount.y
-                                        if (abs(offsetX7 - offsetX8) < snapDistance && abs(offsetY7 - offsetY8) < snapDistance) {
-                                            offsetX7 = offsetX8
-                                            offsetY7 = offsetY8
-                                            snapped7to8 = true
-                                        }
-                                    }
-                                }
-                        )
-                        Image(
-                            painter = image8,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .offset((offsetX8 / d.density).dp, (offsetY8 / d.density).dp)
-                                .size(100.dp)
-                                .pointerInput(Unit) {
-                                    detectDragGestures { change, dragAmount ->
-                                        change.consumeAllChanges()
-                                        offsetX8 += dragAmount.x
-                                        offsetY8 += dragAmount.y
-                                        if (abs(offsetX8 - offsetX7) < snapDistance && abs(offsetY8 - offsetY7) < snapDistance) {
-                                            offsetX8 = offsetX7
-                                            offsetY8 = offsetY7
-                                            snapped7to8 = true
-                                        }
-                                    }
-                                }
-                        )
+
+
+
                         if (snapped1to2 && snapped3to4 && snapped5to6 && snapped7to8) {
                             showWinMessage = true
                             LaunchedEffect(Unit) {
