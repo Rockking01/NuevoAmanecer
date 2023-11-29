@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -42,22 +43,22 @@ fun juegosPage(navController: NavHostController){
 
 
     }
-    Column ( verticalArrangement = Arrangement.Center,
+    Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
     ) {
         FloatingActionButton(
-
+            shape = RectangleShape,
             onClick = {
                 navController.navigate("userPage")
             },
             modifier = Modifier
-                .align(Alignment.End)
-
+                .align(Alignment.Start)
         ) {
-            Icon(Icons.Filled.Close, "Cerrar Sesion")
+            Icon(Icons.Filled.ArrowBack, "Regresar")
         }
+
 
         Row {
             Button(
@@ -117,7 +118,7 @@ fun juegosPage(navController: NavHostController){
                     containerColor = Color.Yellow,
                     contentColor = Color.Black),
                 shape = RoundedCornerShape(20.dp),
-                onClick = {  navController.navigate("userPage")},
+                onClick = {  navController.navigate("Cupcake")},
                 modifier = Modifier
                     .height(300.dp)
                     .width(600.dp)
