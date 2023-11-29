@@ -8,5 +8,6 @@ class Alumno (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val Max: Double
+    val MaxTablero: Int,
+
 )

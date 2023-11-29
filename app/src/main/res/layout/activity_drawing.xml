@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DrawActivity">
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btnColorRed"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Rojo"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnColorBlue"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Azul"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnColorYellow"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Amarillo"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnColorOrange"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Naranja"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnColorPurple"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Morado"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnColorGreen"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Verde"
+            android:textSize="20sp"/>
+
+
+
+
+        <Button
+            android:id="@+id/btnColorBlack"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Negro"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnColorBrown"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Marrón"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnColorPink"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Rosa"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnClearCanvas"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Limpiar"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp" />
+
+
+
+
+
+    </LinearLayout>
+
+    <com.example.drawinggame.DrawingView
+        android:id="@+id/drawingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/buttonsLayout"/>
+
+</RelativeLayout>

@@ -64,5 +64,8 @@ fun Navigation (){
         composable("Oficina"){
             oficinaPictoPage(navController)
         }
+        composable("Draw"){
+            DrawScreen(navController)
+        }
     }
 }
