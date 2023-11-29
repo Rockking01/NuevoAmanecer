@@ -18,6 +18,7 @@ import com.example.nuevoamanecer.Pantallas.oficinaPictoPage
 import com.example.nuevoamanecer.Pantallas.tableroPage
 import com.example.nuevoamanecer.Pantallas.transportePictoPage
 import com.example.nuevoamanecer.Pantallas.animalesPictoPage
+import com.example.nuevoamanecer.viewModels.AdminViewModel
 
 @Composable
 fun Navigation (){

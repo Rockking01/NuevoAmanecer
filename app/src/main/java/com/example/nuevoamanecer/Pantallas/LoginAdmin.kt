@@ -1,6 +1,7 @@
 package com.example.nuevoamanecer.Pantallas
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -35,8 +36,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.example.nuevoamanecer.AdminViewModelFactory
 import com.example.nuevoamanecer.R
+import com.example.nuevoamanecer.viewModels.AdminViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,8 +48,11 @@ import com.example.nuevoamanecer.R
 fun LoginAdmin(navController: NavHostController) {
 
 
-    var name by remember { mutableStateOf("") }
-    var code by remember { mutableStateOf("") }
+    val viewModel: AdminViewModel = viewModel()
+    viewModel.createAdmin("Mariana Gabarrot","MarianaG@nuevoamanecer.mx", "Password123");
+
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
     Box(
         modifier = with (Modifier){
             fillMaxSize()
@@ -95,21 +102,29 @@ fun LoginAdmin(navController: NavHostController) {
 
         Text(text = "Email Institucional:", fontSize = 30.sp)
         TextField(
-            value = name,
-            onValueChange = { name = it },
+            value = username,
+            onValueChange = { username = it },
             label = { Text("pedro@nuevoamanecer.mx") }
         )
         Text(text = "Contraseña:", fontSize = 30.sp)
         TextField(
-            value = code,
-            onValueChange = { code = it },
+            value = password,
+            onValueChange = { password = it },
             label = { Text("Enter password") },
             visualTransformation = PasswordVisualTransformation()
         )
         Button(
             onClick = {
 
-                navController.navigate("adminPage")
+                viewModel.login(username, password);
+               val loggedInAdmin = viewModel.loggedInAdmin.value;
+
+                if (loggedInAdmin != null) {
+                  navController.navigate("adminPage")
+               } else {
+                    Log.d("malusuario","error")
+               }
+
 
             }, modifier = Modifier
                 .align(Alignment.CenterHorizontally)

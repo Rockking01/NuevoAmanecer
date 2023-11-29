@@ -53,6 +53,7 @@ fun computadoraPictoPage (navController: NavHostController) {
 
             LazyVerticalGrid(
                 columns = GridCells.Fixed(5)
+
             ) {
                 items(photos) { photo ->
 

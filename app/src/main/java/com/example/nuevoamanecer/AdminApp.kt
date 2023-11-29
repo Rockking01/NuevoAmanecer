@@ -2,16 +2,16 @@ package com.example.nuevoamanecer
 
 import android.app.Application
 import androidx.room.Room
-import com.example.nuevoamanecer.db.Database
-import com.example.nuevoamanecer.db.ImagesDatabase
+import com.example.nuevoamanecer.db.AdminDatabase
+import com.example.nuevoamanecer.db.AlumnosDatabase
 
-class ImagesApp : Application() {
+class AdminApp : Application() {
 
     val database by lazy {
         Room.databaseBuilder(
             applicationContext,
-            Database::class.java,
-            "database"
+            AdminDatabase::class.java,
+            "admin_db"
         ).build()
     }
 

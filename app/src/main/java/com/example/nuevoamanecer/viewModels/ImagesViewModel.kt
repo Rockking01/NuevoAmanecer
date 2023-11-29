@@ -13,7 +13,7 @@ class ImagesViewModel(application: Application)  : AndroidViewModel(application)
     val images = mutableStateOf<List<Images>>(emptyList())
 
     private val database = (application as ImagesApp).database
-    private val dao = database.dao
+    private val dao = database.Imgdao
 
     init {
         viewModelScope.launch {

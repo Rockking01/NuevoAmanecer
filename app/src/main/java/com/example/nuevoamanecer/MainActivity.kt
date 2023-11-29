@@ -13,12 +13,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nuevoamanecer.Pantallas.Login
 import com.example.nuevoamanecer.Pantallas.adminPage
 import com.example.nuevoamanecer.Pantallas.juegosPage
 import com.example.nuevoamanecer.Pantallas.tableroPage
 import com.example.nuevoamanecer.Pantallas.userPage
 import com.example.nuevoamanecer.ui.theme.NuevoAmanecerTheme
+import com.example.nuevoamanecer.viewModels.AdminViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
