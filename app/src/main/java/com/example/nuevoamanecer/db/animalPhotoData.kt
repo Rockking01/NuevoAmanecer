@@ -1,9 +1,8 @@
-package com.example.nuevoamanecer.Pantallas
+package com.example.nuevoamanecer.db
 
 import com.example.nuevoamanecer.R
 
-
-fun getPhoto(): List<Int> {
+fun animalGetPhoto(): List<Int> {
 
     return listOf(
 
@@ -27,8 +26,12 @@ fun getPhoto(): List<Int> {
         (R.drawable.ballena),
         (R.drawable.loro),
         (R.drawable.cabra),
+        (R.drawable.burro),
+        (R.drawable.delfin),
+        (R.drawable.gallo),
+        (R.drawable.leon),
+        (R.drawable.pajaro),
 
 
-    )
+        )
 }
-
