@@ -105,8 +105,8 @@
             var offsetY5 by remember { mutableStateOf(75f) }
             var offsetX6 by remember { mutableStateOf(1300f) }
             var offsetY6 by remember { mutableStateOf(900f) }
-            var offsetX7 by remember { mutableStateOf(3000f) }
-            var offsetY7 by remember { mutableStateOf(600f) }
+            var offsetX7 by remember { mutableStateOf(1900f) }
+            var offsetY7 by remember { mutableStateOf(75f) }
             var offsetX8 by remember { mutableStateOf(650f) }
             var offsetY8 by remember { mutableStateOf(900f) }
             val image1: Painter = painterResource(id = R.drawable.cuadro_relleno)
@@ -150,18 +150,6 @@
                 modifier = Modifier
                     .offset((offsetX2 / d.density).dp, (offsetY2 / d.density).dp)
                     .size(300.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX2 += dragAmount.x
-                            offsetY2 += dragAmount.y
-                            if (abs(offsetX2 - offsetX1) < snapDistance && abs(offsetY2 - offsetY1) < snapDistance) {
-                                offsetX2 = offsetX1
-                                offsetY2 = offsetY1
-                                snapped1to2 = true
-                            }
-                        }
-                    }
             )
 
             Image(
@@ -190,18 +178,6 @@
                 modifier = Modifier
                     .offset((offsetX4 / d.density).dp, (offsetY4 / d.density).dp)
                     .size(300.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX4 += dragAmount.x
-                            offsetY4 += dragAmount.y
-                            if (abs(offsetX4 - offsetX3) < snapDistance && abs(offsetY4 - offsetY3) < snapDistance) {
-                                offsetX4 = offsetX3
-                                offsetY4 = offsetY3
-                                snapped3to4 = true
-                            }
-                        }
-                    }
             )
             Image(
                 painter = image5,
@@ -228,18 +204,6 @@
                 modifier = Modifier
                     .offset((offsetX6 / d.density).dp, (offsetY6 / d.density).dp)
                     .size(300.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX6 += dragAmount.x
-                            offsetY6 += dragAmount.y
-                            if (abs(offsetX6 - offsetX5) < snapDistance && abs(offsetY6 - offsetY5) < snapDistance) {
-                                offsetX6 = offsetX5
-                                offsetY6 = offsetY5
-                                snapped5to6 = true
-                            }
-                        }
-                    }
             )
             Image(
                 painter = image7,
@@ -266,18 +230,6 @@
                 modifier = Modifier
                     .offset((offsetX8 / d.density).dp, (offsetY8 / d.density).dp)
                     .size(300.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX8 += dragAmount.x
-                            offsetY8 += dragAmount.y
-                            if (abs(offsetX8 - offsetX7) < snapDistance && abs(offsetY8 - offsetY7) < snapDistance) {
-                                offsetX8 = offsetX7
-                                offsetY8 = offsetY7
-                                snapped7to8 = true
-                            }
-                        }
-                    }
             )
             if (snapped1to2 && snapped3to4 && snapped5to6 && snapped7to8) {
                 showWinMessage = true
@@ -388,18 +340,6 @@
                 modifier = Modifier
                     .offset((offsetX2 / d.density).dp, (offsetY2 / d.density).dp)
                     .size(200.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX2 += dragAmount.x
-                            offsetY2 += dragAmount.y
-                            if (abs(offsetX2 - offsetX1) < snapDistance && abs(offsetY2 - offsetY1) < snapDistance) {
-                                offsetX2 = offsetX1
-                                offsetY2 = offsetY1
-                                snapped1to2 = true
-                            }
-                        }
-                    }
             )
 
             Image(
@@ -428,18 +368,6 @@
                 modifier = Modifier
                     .offset((offsetX4 / d.density).dp, (offsetY4 / d.density).dp)
                     .size(200.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX4 += dragAmount.x
-                            offsetY4 += dragAmount.y
-                            if (abs(offsetX4 - offsetX3) < snapDistance && abs(offsetY4 - offsetY3) < snapDistance) {
-                                offsetX4 = offsetX3
-                                offsetY4 = offsetY3
-                                snapped3to4 = true
-                            }
-                        }
-                    }
             )
             Image(
                 painter = image5,
@@ -466,18 +394,6 @@
                 modifier = Modifier
                     .offset((offsetX6 / d.density).dp, (offsetY6 / d.density).dp)
                     .size(200.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX6 += dragAmount.x
-                            offsetY6 += dragAmount.y
-                            if (abs(offsetX6 - offsetX5) < snapDistance && abs(offsetY6 - offsetY5) < snapDistance) {
-                                offsetX6 = offsetX5
-                                offsetY6 = offsetY5
-                                snapped5to6 = true
-                            }
-                        }
-                    }
             )
             Image(
                 painter = image7,
@@ -504,18 +420,6 @@
                 modifier = Modifier
                     .offset((offsetX8 / d.density).dp, (offsetY8 / d.density).dp)
                     .size(200.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX8 += dragAmount.x
-                            offsetY8 += dragAmount.y
-                            if (abs(offsetX8 - offsetX7) < snapDistance && abs(offsetY8 - offsetY7) < snapDistance) {
-                                offsetX8 = offsetX7
-                                offsetY8 = offsetY7
-                                snapped7to8 = true
-                            }
-                        }
-                    }
             )
             Image(
                 painter = image9,
@@ -542,18 +446,6 @@
                 modifier = Modifier
                     .offset((offsetX10 / d.density).dp, (offsetY10 / d.density).dp)
                     .size(290.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX10 += dragAmount.x
-                            offsetY10 += dragAmount.y
-                            if (abs(offsetX10 - offsetX9) < snapDistance && abs(offsetY10 - offsetY9) < snapDistance) {
-                                offsetX10 = offsetX9
-                                offsetY10 = offsetY9
-                                snapped9to10 = true
-                            }
-                        }
-                    }
             )
             Image(
                 painter = image11,
@@ -580,18 +472,6 @@
                 modifier = Modifier
                     .offset((offsetX12 / d.density).dp, (offsetY12 / d.density).dp)
                     .size(250.dp)
-                    .pointerInput(Unit) {
-                        detectDragGestures { change, dragAmount ->
-                            change.consumeAllChanges()
-                            offsetX12 += dragAmount.x
-                            offsetY12 += dragAmount.y
-                            if (abs(offsetX12 - offsetX11) < snapDistance && abs(offsetY12 - offsetY11) < snapDistance) {
-                                offsetX12 = offsetX11
-                                offsetY12 = offsetY11
-                                snapped11to12 = true
-                            }
-                        }
-                    }
             )
             if (snapped1to2 && snapped3to4 && snapped5to6 && snapped7to8 && snapped9to10 && snapped11to12) {
                 showWinMessage = true
