@@ -3,6 +3,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.nuevoamanecer.Pantallas.BalloonGameScreen
+import com.example.nuevoamanecer.Pantallas.DragGameScreen
 import com.example.nuevoamanecer.Pantallas.InsertImage
 import com.example.nuevoamanecer.Pantallas.Login
 import com.example.nuevoamanecer.Pantallas.LoginAdmin
@@ -66,6 +67,9 @@ fun Navigation (){
         }
         composable("Draw"){
             DrawScreen(navController)
+        }
+        composable("Drag"){
+            DragGameScreen(navController)
         }
     }
 }

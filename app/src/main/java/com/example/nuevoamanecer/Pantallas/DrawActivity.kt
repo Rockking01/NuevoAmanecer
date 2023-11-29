@@ -14,6 +14,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -43,7 +44,6 @@ fun DrawScreen(navController: NavController) {
                 Box {
                     // Aquí se incrusta tu SurfaceView
                     AndroidView(factory = { innerContext ->
-                        DrawActivity()
                         DrawingView(innerContext)
 
                     })
