@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
@@ -58,21 +59,27 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val backgroundPainter = painterResource(id = R.drawable.hoja_background)
+
                     Image(
                         painter = backgroundPainter,
                         contentDescription = null,
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color.White),
+                        contentScale = ContentScale.Crop
                     )
                     Box() {
                         val d = LocalDensity.current
                         val maxX = LocalConfiguration.current.screenWidthDp.dp
                         val maxY = LocalConfiguration.current.screenHeightDp.dp
-                        var offsetX1 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY1 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
-                        var offsetX2 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY2 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
-                        var offsetX3 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
-                        var offsetY3 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
+                        var offsetX0 by remember { mutableStateOf(1200f) }
+                        var offsetY0 by remember { mutableStateOf(265f) }
+                        var offsetX1 by remember { mutableStateOf(1300f) }
+                        var offsetY1 by remember { mutableStateOf(200f) }
+                        var offsetX2 by remember { mutableStateOf(1325f) }
+                        var offsetY2 by remember { mutableStateOf(226f) }
+                        var offsetX3 by remember { mutableStateOf(100f) }
+                        var offsetY3 by remember { mutableStateOf(200f) }
                         var offsetX4 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
                         var offsetY4 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
                         var offsetX5 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
@@ -83,9 +90,16 @@ class MainActivity : ComponentActivity() {
                         var offsetY7 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
                         var offsetX8 by remember { mutableStateOf(Random.nextFloat() * maxX.value) }
                         var offsetY8 by remember { mutableStateOf(Random.nextFloat() * maxY.value) }
-                        val image1: Painter = painterResource(id = R.drawable.cuadro_relleno)
-                        val image2: Painter = painterResource(id = R.drawable.cuadro_contorno)
-                        val image3: Painter = painterResource(id = R.drawable.circulo_relleno)
+                        val frost: Painter = painterResource(id = R.drawable.frost)
+                        val basecup: Painter = painterResource(id = R.drawable.basecup)
+                        val botonBlanco: Painter = painterResource(id = R.drawable.blanco)
+                        val botonAzul: Painter = painterResource(id = R.drawable.azul)
+                        val botonRosa: Painter = painterResource(id = R.drawable.rosa)
+                        val botonMorado: Painter = painterResource(id = R.drawable.morado)
+                        val blanco: Painter = painterResource(id = R.drawable.blanco)
+                        val azul: Painter = painterResource(id = R.drawable.azul)
+                        val rosa: Painter = painterResource(id = R.drawable.rosa)
+                        val mora: Painter = painterResource(id = R.drawable.morado)
                         val image4: Painter = painterResource(id = R.drawable.circulo_contorno)
                         val image5: Painter = painterResource(id = R.drawable.pentagono_relleno)
                         val image6: Painter = painterResource(id = R.drawable.pentagono_contorno)
@@ -98,64 +112,118 @@ class MainActivity : ComponentActivity() {
                         var showWinMessage by remember { mutableStateOf(false) }
                         val snapDistance = 50f
 
+                        var visBlan by remember { mutableStateOf(false) }
+                        var visAzul by remember { mutableStateOf(false) }
+                        var visRosa by remember { mutableStateOf(false) }
+                        var visMora by remember { mutableStateOf(false) }
+
                         Image(
-                            painter = image1,
+                            painter = frost,
                             contentDescription = null,
                             modifier = Modifier
                                 .offset((offsetX1 / d.density).dp, (offsetY1 / d.density).dp)
-                                .size(100.dp)
-                                .pointerInput(Unit) {
-                                    detectDragGestures { change, dragAmount ->
-                                        change.consumeAllChanges()
-                                        offsetX1 += dragAmount.x
-                                        offsetY1 += dragAmount.y
-                                        if (abs(offsetX1 - offsetX2) < snapDistance && abs(offsetY1 - offsetY2) < snapDistance) {
-                                            offsetX1 = offsetX2
-                                            offsetY1 = offsetY2
-                                            snapped1to2 = true
-                                        }
-                                    }
-                                }
+                                .size(455.dp)
+
                         )
 
                         Image(
-                            painter = image2,
+                            painter = basecup,
                             contentDescription = null,
                             modifier = Modifier
-                                .offset((offsetX2 / d.density).dp, (offsetY2 / d.density).dp)
-                                .size(100.dp)
-                                .pointerInput(Unit) {
-                                    detectDragGestures { change, dragAmount ->
-                                        change.consumeAllChanges()
-                                        offsetX2 += dragAmount.x
-                                        offsetY2 += dragAmount.y
-                                        if (abs(offsetX2 - offsetX1) < snapDistance && abs(offsetY2 - offsetY1) < snapDistance) {
-                                            offsetX2 = offsetX1
-                                            offsetY2 = offsetY1
-                                            snapped1to2 = true
-                                        }
-                                    }
-                                }
+                                .offset((offsetX0 / d.density).dp, (offsetY0 / d.density).dp)
+                                .size(555.dp)
                         )
 
                         Image(
-                            painter = image3,
+                            painter = botonBlanco,
                             contentDescription = null,
                             modifier = Modifier
                                 .offset((offsetX3 / d.density).dp, (offsetY3 / d.density).dp)
                                 .size(100.dp)
-                                .pointerInput(Unit) {
-                                    detectDragGestures { change, dragAmount ->
-                                        change.consumeAllChanges()
-                                        offsetX3 += dragAmount.x
-                                        offsetY3 += dragAmount.y
-                                        if (abs(offsetX3 - offsetX4) < snapDistance && abs(offsetY3 - offsetY4) < snapDistance) {
-                                            offsetX3 = offsetX4
-                                            offsetY3 = offsetY4
-                                            snapped3to4 = true
-                                        }
-                                    }
+                                .clickable {
+                                    visBlan = true
+                                    visAzul = false
+                                    visRosa = false
+                                    visMora = false
                                 }
+
+                        )
+
+                        Image(
+                            painter = blanco,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(if (visBlan) (offsetX2/d.density).dp else (-1000).dp, (offsetY2/d.density).dp)
+                                .size(430.dp)
+                        )
+
+                        Image(
+                            painter = botonAzul,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((offsetX3 / d.density)+130).dp, (offsetY3 / d.density).dp)
+                                .size(100.dp)
+                                .clickable {
+                                    visBlan = false
+                                    visAzul = true
+                                    visRosa = false
+                                    visMora = false
+                                }
+
+                        )
+
+                        Image(
+                            painter = azul,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(if (visAzul) (offsetX2/d.density).dp else (-1000).dp, (offsetY2/d.density).dp)
+                                .size(430.dp)
+                        )
+
+                        Image(
+                            painter = botonRosa,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((offsetX3 / d.density)+260).dp, (offsetY3 / d.density).dp)
+                                .size(100.dp)
+                                .clickable {
+                                    visBlan = false
+                                    visAzul = false
+                                    visRosa = true
+                                    visMora = false
+                                }
+
+                        )
+
+                        Image(
+                            painter = rosa,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(if (visRosa) (offsetX2/d.density).dp else (-1000).dp, (offsetY2/d.density).dp)
+                                .size(430.dp)
+                        )
+
+                        Image(
+                            painter = botonMorado,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(((offsetX3 / d.density)+390).dp, (offsetY3 / d.density).dp)
+                                .size(100.dp)
+                                .clickable {
+                                    visBlan = false
+                                    visAzul = false
+                                    visRosa = false
+                                    visMora = true
+                                }
+
+                        )
+
+                        Image(
+                            painter = mora,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .offset(if (visMora) (offsetX2/d.density).dp else (-1000).dp, (offsetY2/d.density).dp)
+                                .size(430.dp)
                         )
 
                         Image(
