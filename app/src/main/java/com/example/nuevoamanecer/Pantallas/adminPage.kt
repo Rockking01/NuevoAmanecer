@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
-<<<<<<<<< Temporary merge branch 1
+
 fun adminPage(navController: NavHostController, usuario: Usuario = getData()[1]) {
 
     Column (modifier = Modifier.fillMaxSize()){
@@ -32,12 +32,7 @@ fun adminPage(navController: NavHostController, usuario: Usuario = getData()[1])
                     vertical = 10.dp),
             text = "Pagina del Admin"
         )
-=========
-fun adminPage(navController: NavHostController) {
 
-    Column (modifier = Modifier.fillMaxSize()){
-
->>>>>>>>> Temporary merge branch 2
         FloatingActionButton(
             onClick = {
                 navController.navigate("Login")

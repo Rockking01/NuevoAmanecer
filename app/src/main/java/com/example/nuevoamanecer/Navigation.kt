@@ -9,9 +9,13 @@ import com.example.nuevoamanecer.Pantallas.LoginAdmin
 import com.example.nuevoamanecer.Pantallas.LoginUser
 import com.example.nuevoamanecer.Pantallas.userPage
 import com.example.nuevoamanecer.Pantallas.adminPage
+import com.example.nuevoamanecer.Pantallas.animalesPictoPage
+import com.example.nuevoamanecer.Pantallas.computadoraPictoPage
 import com.example.nuevoamanecer.Pantallas.juegosPage
+import com.example.nuevoamanecer.Pantallas.oficinaPictoPage
 import com.example.nuevoamanecer.Pantallas.tableroPage
-
+import com.example.nuevoamanecer.Pantallas.transportePictoPage
+import com.example.nuevoamanecer.Pantallas.animalesPictoPage
 
 @Composable
 fun Navigation (){
