@@ -1,7 +1,6 @@
 package com.example.nuevoamanecer.Pantallas
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,12 +32,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.nuevoamanecer.AdminViewModelFactory
 import com.example.nuevoamanecer.R
 import com.example.nuevoamanecer.viewModels.AdminViewModel
 
@@ -53,11 +52,12 @@ fun LoginAdmin(navController: NavHostController) {
 
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var error by remember { mutableStateOf(false) }
     Box(
         modifier = with (Modifier){
             fillMaxSize()
                 .background(Color(0xFF4BADE9))
-            // Replace with your image id
+
 
 
         }){
@@ -98,7 +98,18 @@ fun LoginAdmin(navController: NavHostController) {
             Icon(Icons.Filled.ArrowBack, "Regresar")
         }
 
+
+
         Text(text = "Bienvenido", fontSize = 58.sp)
+
+
+        if(error){
+            Text(text = "usuario o contraseña incorrecto" ,style = TextStyle(
+                fontSize = 24.sp,
+                color = Color.Red
+            )
+            )
+        }
 
         Text(text = "Email Institucional:", fontSize = 30.sp)
         TextField(
@@ -120,9 +131,9 @@ fun LoginAdmin(navController: NavHostController) {
                val loggedInAdmin = viewModel.loggedInAdmin.value;
 
                 if (loggedInAdmin != null) {
-                  navController.navigate("adminPage")
+                  navController.navigate("adminPage/$loggedInAdmin.name" )
                } else {
-                    Log.d("malusuario","error")
+                    error = true;
                }
 
 
@@ -143,8 +154,9 @@ fun LoginAdmin(navController: NavHostController) {
         Image(
             painter = painterResource(id = R.drawable.logo_nuevo_amanecer),
             contentDescription = "Logo",
-            modifier = Modifier.padding(top = 150.dp, start = 800.dp).size(400.dp)
-
+            modifier = Modifier
+                .padding(top = 150.dp, start = 800.dp)
+                .size(400.dp)
 
         )
     }

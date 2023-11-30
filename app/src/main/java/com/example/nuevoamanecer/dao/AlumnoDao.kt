@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.RoomDatabase
 import androidx.room.Update
+import com.example.nuevoamanecer.model.Admin
 import com.example.nuevoamanecer.model.Alumno
 import kotlinx.coroutines.flow.Flow
 
@@ -19,6 +20,9 @@ interface AlumnoDao {
 
     @Query("Select * from alumno")
     fun getAllAlumno(): Flow<List<Alumno>>
+
+    @Query("SELECT * FROM alumno WHERE name = :nombre AND code = :code")
+    suspend fun getUser(nombre: String, code: Int): Alumno?
 
     @Delete
     suspend fun deleteAlumno(alumno: Alumno)

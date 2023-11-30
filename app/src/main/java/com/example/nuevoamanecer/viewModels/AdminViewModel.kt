@@ -1,17 +1,12 @@
 package com.example.nuevoamanecer.viewModels
 
-import com.example.nuevoamanecer.AdminApp
-import com.example.nuevoamanecer.db.AdminDatabase
 import com.example.nuevoamanecer.model.Admin
 
 import android.app.Application
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.nuevoamanecer.AlumnoApp
 import com.example.nuevoamanecer.ImagesApp
-import com.example.nuevoamanecer.model.Alumno
 import kotlinx.coroutines.launch
 
 class AdminViewModel(application: Application): AndroidViewModel(application){

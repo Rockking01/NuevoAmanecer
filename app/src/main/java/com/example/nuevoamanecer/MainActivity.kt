@@ -7,20 +7,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.nuevoamanecer.Pantallas.Login
-import com.example.nuevoamanecer.Pantallas.adminPage
-import com.example.nuevoamanecer.Pantallas.juegosPage
-import com.example.nuevoamanecer.Pantallas.tableroPage
-import com.example.nuevoamanecer.Pantallas.userPage
 import com.example.nuevoamanecer.ui.theme.NuevoAmanecerTheme
-import com.example.nuevoamanecer.viewModels.AdminViewModel
+import com.example.nuevoamanecer.viewModels.AlumnosViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

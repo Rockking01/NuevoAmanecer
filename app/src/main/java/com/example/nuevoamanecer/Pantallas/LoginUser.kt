@@ -32,19 +32,27 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.nuevoamanecer.R
+import com.example.nuevoamanecer.viewModels.AlumnosViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginUser(navController: NavHostController) {
-
+    val alumviewModel: AlumnosViewModel = viewModel()
+    alumviewModel.createAlumno("Juan Perez",8, "Oruga",8350)
+    alumviewModel.createAlumno("Maria Agundez",10, "Capullo",8351)
+    alumviewModel.createAlumno("Franco Garza",6, "Oruga",8352)
 
     var name by remember { mutableStateOf("")}
     var code by remember { mutableStateOf("")}
+    var error by remember { mutableStateOf(false) }
+
     Box(
         modifier = with (Modifier){
             fillMaxSize()
@@ -92,6 +100,15 @@ fun LoginUser(navController: NavHostController) {
 
         Text(text = "Bienvenido", fontSize = 58.sp)
 
+        if(error){
+            Text(text = "usuario o contraseña incorrecto" ,style = TextStyle(
+                fontSize = 24.sp,
+                color = Color.Red
+            )
+            )
+        }
+
+
         Text(text = "Nombre Alumno:", fontSize = 30.sp)
         TextField(
             value = name,
@@ -107,7 +124,13 @@ fun LoginUser(navController: NavHostController) {
         Button(
             onClick = {
 
-                navController.navigate("userPage")
+                alumviewModel.login(name, code.toInt());
+                val loggedInAlum = alumviewModel.loggedInAlum.value;
+
+
+                navController.navigate("userPage" )
+
+
 
             }, modifier = Modifier
                 .align(Alignment.CenterHorizontally)

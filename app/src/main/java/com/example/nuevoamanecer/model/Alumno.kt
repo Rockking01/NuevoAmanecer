@@ -9,6 +9,7 @@ class Alumno (
     val id: Int,
     val name: String,
     val edad: Int,
+    val code: Int,
     val nivel: String,
     val MaxTablero: Int,
     val nivel1Jugado:Int,
@@ -19,4 +20,5 @@ class Alumno (
     val nivel3N2C: Boolean,
 
 
-)
+) {
+}
